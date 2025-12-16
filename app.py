@@ -225,6 +225,15 @@ def generate():
             'error': f'Erro ao processar: {str(e)}',
             'success': False
         }), 500
+        
+@app.route("/debug-env")
+def debug_env():
+    return {
+        "replicate_present": bool(os.environ.get("REPLICATE_API_TOKEN")),
+        "groq_present": bool(os.environ.get("GROQ_API_KEY")),
+        "env_keys": list(os.environ.keys())
+    }
+
 
 if __name__ == '__main__':
     # Verifica se as chaves estão configuradas
