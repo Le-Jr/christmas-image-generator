@@ -125,7 +125,7 @@ def generate_message(name, feeling, gift):
                     "content": f"Escreva uma mensagem curta de Natal para {name}. A pessoa está se sentindo {feeling} e pediu de presente {gift}."
                 }
             ],
-            model="llama-3.1-8b-instant",
+            model="llama-3.3-70b-versatile",
             temperature=0.8,
             max_tokens=150
         )
