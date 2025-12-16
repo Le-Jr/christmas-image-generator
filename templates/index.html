@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faça sua foto com o Papai Noel 🎅</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Ornamentos decorativos -->
+    <div class="ornament">🎄</div>
+    <div class="ornament">🎁</div>
+    <div class="ornament">⭐</div>
+    <div class="ornament">🔔</div>
+
+    <div class="container">
+      <h1>Faça sua foto com o Papai Noel 🎅</h1>
+      <p class="subtitle">Crie uma lembrança mágica deste Natal!</p>
+
+      <form id="form" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="photo">📸 Envie sua foto:</label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept="image/*"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">🎅 Qual é o seu nome?</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Ex: Maria"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gênero</label>
+          <select name="gender" class="form-control">
+            <option value="male">Masculino</option>
+            <option value="female">Feminino</option>
+            <option value="nao_infomar">Prefiro nao infomar</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="feeling">💭 O que você está sentindo?</label>
+          <input
+            type="text"
+            id="feeling"
+            name="feeling"
+            placeholder="Ex: animado, feliz, nostálgico..."
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="gift">🎁 Qual presente você quer?</label>
+          <input
+            type="text"
+            id="gift"
+            name="gift"
+            placeholder="Ex: saúde, paz, amor..."
+            required
+          />
+        </div>
+
+        <button type="submit">Gerar minha foto 🎄</button>
+      </form>
+
+      <!-- Loading animado -->
+      <div id="loading" style="display: none">
+        <div class="loading-spinner">
+          <div class="santa-sleigh">🎅🦌</div>
+        </div>
+        <p id="loading-text" style="transition: opacity 0.3s">
+          🎅 O Papai Noel está preparando tudo...
+        </p>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div id="result" style="display: none; transition: opacity 0.5s">
+        <h2
+          style="
+            font-family: 'Mountains of Christmas', cursive;
+            color: #c41e3a;
+            margin-bottom: 20px;
+          "
+        >
+          ✨ Sua Foto Mágica de Natal ✨
+        </h2>
+        <img id="generated-image" alt="Sua foto com o Papai Noel" />
+        <button id="download-btn" class="download-button">
+          📥 Baixar Foto de Natal
+        </button>
+        <div id="message"></div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
